@@ -2,13 +2,13 @@
 import { Row, Col, Stack, Button, Carousel } from "react-bootstrap";
 
 // COMPONENTS IMPORT
-import ColoredIcons from "../components/ColoredIcons";
-import SeparatorLine from "../components/SeparatorLine";
-import CSFloat from "../components/CSFloat";
-import FadeTransition from "../components/FadeTransition";
+import ColoredIcons from "../components/MainComponents/ColoredIcons";
+import SeparatorLine from "../components/MainComponents/SeparatorLine";
+import CSFloat from "../components/MainComponents/CSFloat";
+import FadeTransition from "../components/MainComponents/FadeTransition";
 
 // ASSETS IMPORT
-import telkom from "../assets/telkom.png";
+import telkom from "../assets/telkom.jpg";
 import carousel1 from "../assets/loginCars1.jpg";
 import carousel2 from "../assets/loginCars2.jpg";
 import carousel3 from "../assets/loginCars3.jpg";

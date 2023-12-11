@@ -3,7 +3,7 @@ import { Container, Row, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 // COMPONENTS IMPORT
-import FadeTransition from "../components/FadeTransition";
+import FadeTransition from "../components/MainComponents/FadeTransition";
 
 // ASSETS IMPORT
 import ValidateIcon from "../assets/ValidateIcon.png";

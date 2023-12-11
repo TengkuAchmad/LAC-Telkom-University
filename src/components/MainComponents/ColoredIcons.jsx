@@ -2,8 +2,8 @@
 import { useState, useEffect } from "react";
 
 // ASSETS IMPORT
-import office365 from "../assets/office365.png";
-import google from "../assets/google.png";
+import office365 from "../../assets/office365.png";
+import google from "../../assets/google.png";
 
 const ColoredIcons = (props) => {
   const [iconUrl, setIconUrl] = useState("");

@@ -2,14 +2,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Form, InputGroup } from "react-bootstrap";
-import { BiEnvelope, BiLockAlt, BiShow, BiHide, BiUser } from "react-icons/bi";
+import { BiEnvelope, BiLockAlt } from "react-icons/bi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useUser } from "../../api/UserContext";
 
 // REQUEST IMPORT
 import { accountLogin } from "../../api/request";
 
 const FormLogin = () => {
+
+  // CONTAINER FOR UPDATE USER CONTEXT
+  const { updateUser } = useUser();
+
   // NAVIGATOR
   const navigate = useNavigate();
 
@@ -40,9 +45,12 @@ const FormLogin = () => {
 
     // REQUEST API
     try {
-      await accountLogin(formData);
+      const response = await accountLogin(formData);
+      const userData = await response
+      updateUser(userData);
+
       setTimeout(() => {
-        toast.success("Success login to your account!");
+        navigate('/dashboard');
         setIsLoading(false);
       }, 3000);
     } catch (error) {

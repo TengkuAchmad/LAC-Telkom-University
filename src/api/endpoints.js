@@ -8,3 +8,5 @@ const USER_CRUD = "user-management";
 export const USER_REGISTER  = `${BASE_URL}/${USER_CRUD}/reg`;
 
 export const USER_LOGIN     = `${BASE_URL}/${USER_CRUD}/auth`;
+
+export const USER_DATA      = `${BASE_URL}/${USER_CRUD}/data`;

@@ -5,7 +5,7 @@ import React from "react"
 import { useState, useEffect } from 'react';
 
 // ASSETS IMPORT
-import '../styles/index.css';
+import '../../styles/index.css';
 
 
 const FadeTransition = ({ children }) => {

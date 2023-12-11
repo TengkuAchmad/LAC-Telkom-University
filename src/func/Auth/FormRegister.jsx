@@ -1,8 +1,15 @@
 // LIBRARY IMPORT
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Form, InputGroup } from "react-bootstrap";
-import { BiEnvelope, BiLockAlt, BiShow, BiHide, BiUser } from "react-icons/bi";
+import { Button, Form, InputGroup, Dropdown } from "react-bootstrap";
+import {
+  BiEnvelope,
+  BiLockAlt,
+  BiShow,
+  BiHide,
+  BiUser,
+  BiCalendarEvent,
+} from "react-icons/bi";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -46,9 +53,7 @@ const FormRegister = () => {
     try {
       await accountRegister(formData);
       setTimeout(() => {
-        toast.success(
-          "Success, your account is registered!"
-        );
+        toast.success("Success, your account is registered!");
         setIsLoading(false);
       }, 3000);
     } catch (error) {
@@ -65,15 +70,33 @@ const FormRegister = () => {
       <ToastContainer theme="light" style={{ width: "500px" }} />
       {/* FORM REGISTER*/}
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="FullName_UA">
+        <Form.Group className="mb-3" controlId="Name_UAD">
+          <Form.Label>Full Name</Form.Label>
           <InputGroup>
             <InputGroup.Text className="icon-form">
               <BiUser />
             </InputGroup.Text>
             <Form.Control
               type="text"
-              placeholder="Full Name"
+              placeholder="Joko Santoso"
               className="form-custom"
+              name="Name_UAD"
+              value={formData.FullName_UA}
+              onChange={handleChange}
+              required
+            />
+          </InputGroup>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="Birth_UAD">
+          <Form.Label>Birth Date</Form.Label>
+          <InputGroup>
+            <InputGroup.Text className="icon-form">
+              <BiCalendarEvent />
+            </InputGroup.Text>
+            <Form.Control
+              type="date"
+              className="form-custom"
+              placeholder="Birth"
               name="FullName_UA"
               value={formData.FullName_UA}
               onChange={handleChange}
@@ -82,13 +105,14 @@ const FormRegister = () => {
           </InputGroup>
         </Form.Group>
         <Form.Group className="mb-3" controlId="Email_UA">
+          <Form.Label>Email</Form.Label>
           <InputGroup>
             <InputGroup.Text className="icon-form">
               <BiEnvelope />
             </InputGroup.Text>
             <Form.Control
               type="email"
-              placeholder="Email"
+              placeholder="admin@lac.telkomuniversity.ac.id"
               className="form-custom"
               name="Email_UA"
               value={formData.Email_UA}
@@ -97,7 +121,38 @@ const FormRegister = () => {
             />
           </InputGroup>
         </Form.Group>
+        <Form.Group className="mb-3" controlId="EmailBackup_UA">
+          <Form.Label>Email Back Up</Form.Label>
+          <InputGroup>
+            <InputGroup.Text className="icon-form">
+              <BiEnvelope />
+            </InputGroup.Text>
+            <Form.Control
+              type="email"
+              placeholder="adminlac@gmail.com"
+              className="form-custom"
+              name="EmailBackup_UA"
+              value={formData.Email_UA}
+              onChange={handleChange}
+              required
+            />
+          </InputGroup>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="RoleAccess_UA">
+          <Form.Label>Role Access</Form.Label>
+          <Dropdown className="form-dropdown">
+            <Dropdown.Toggle variant="light" id="dropdown-basic" className="form-dropdown text-start">
+              Select role access
+            </Dropdown.Toggle>
+            <Dropdown.Menu className="form-dropdown">
+              <Dropdown.Item eventKey="Proctor">Proctor</Dropdown.Item>
+              <Dropdown.Item eventKey="Instructor">Instructor</Dropdown.Item>
+              <Dropdown.Item eventKey="Coordinator">Coordinator</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Form.Group>
         <Form.Group className="mb-1" controlId="formPassword">
+          <Form.Label>Password</Form.Label>
           <InputGroup>
             <InputGroup.Text className="icon-form">
               <BiLockAlt />
